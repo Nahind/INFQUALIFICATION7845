@@ -99,6 +99,8 @@ public class Helper {
                     // System.out.println("lat = " + requestsNumber);
                     Request r = new Request(requestid, requestVideoId, requestEndpointId, requestsNumber);
                     requests.add(r);
+                    Endpoint e = endpoints.get(requestEndpointId);
+                    e.addRequest(r);
                     requestid++;
 
                 }

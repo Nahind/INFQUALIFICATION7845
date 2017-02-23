@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        File testFile = new File("src/kittens.in");
+        File testFile = new File("src/Example.in");
         HashCodeProblem hcp = Helper.loadProblem(testFile);
 
         DataCenter dc;
@@ -23,6 +23,10 @@ public class Main {
         System.out.println("v nb : " + videos.size());
         System.out.println("r nb : " + requests.size());
 
+        for (int i =0; i< endpoints.size(); i++) {
+            System.out.println("endpoint of id : " + endpoints.get(i).getId() +
+                    " has " + endpoints.get(i).getRequests().size() + " requests");
+        }
 
 
 
