@@ -8,12 +8,13 @@ public class Cache {
 
     int id;
     int limitSize;
-    int remainingSize = limitSize;
+    int remainingSize;
     List<Video> videos = new ArrayList<>();
 
     public Cache(int id, int limitSize) {
         this.id = id;
         this.limitSize = limitSize;
+        remainingSize = limitSize;
     }
 
     public Boolean addVideo(Video v) {
