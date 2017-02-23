@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * Created by nandane on 23/02/17.
  */
-public class Cache {
+public class Cache implements Comparable{
 
     int id;
     int limitSize;
@@ -16,6 +16,7 @@ public class Cache {
         this.limitSize = limitSize;
         remainingSize = limitSize;
     }
+
 
     public Boolean addVideo(Video v) {
         Boolean success = false;
@@ -45,5 +46,11 @@ public class Cache {
 
     public List<Video> getVideos() {
         return videos;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+
+        return 0;
     }
 }

@@ -27,7 +27,6 @@ public class Helper {
         int requestid = 0;
 
 
-
         try {
             FileInputStream fStream = new FileInputStream(hashCodeFile);
             BufferedReader in = new BufferedReader(new InputStreamReader(fStream));
@@ -67,6 +66,7 @@ public class Helper {
                         int endpointId = i;
                         int endpointLatencyToDataCenter = Integer.parseInt(data[0]);
                         int cacheNumber = Integer.parseInt(data[1]);
+                        ArrayList<Cache> cachesOfThisEndpoint = new ArrayList<>();
                         Map<Cache, Integer> connectedCaches = new HashMap<>();
                         // System.out.println("cache number = " + cacheNumber);
 
@@ -78,6 +78,7 @@ public class Helper {
                             int cacheLatency = Integer.parseInt(data[1]);
                             Cache c = new Cache(cacheId, cacheSize);
                             caches.add(c);
+                            cachesOfThisEndpoint.add(c);
                             connectedCaches.put(c, cacheLatency);
                         }
 
@@ -111,5 +112,37 @@ public class Helper {
         }
 
         return new HashCodeProblem(dc, caches, endpoints, videos, requests);
+    }
+
+    public void printResult(String outputFileName, Solution solution) {
+
+        try {
+            BufferedWriter writer = new BufferedWriter(
+                    new FileWriter("./" + outputFileName));
+
+            writer.write(solution.selectedCache.size());
+
+
+            for (Cache c :solution.selectedCache) {
+                writer.newLine();
+                String format = "";
+                format += c.getId();
+
+                for (Video v : c.getVideos()) {
+
+                    format += " " + v.getId();
+                }
+
+                writer.write(format);
+
+            }
+
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
