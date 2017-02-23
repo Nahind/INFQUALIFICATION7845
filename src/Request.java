@@ -8,5 +8,10 @@ public class Request {
     int requestEndpointId;
     int requestNumber;
 
-
+    public Request(int id, int requestVideoId, int requestEndpointId, int requestNumber) {
+        this.id = id;
+        this.requestVideoId = requestVideoId;
+        this.requestEndpointId = requestEndpointId;
+        this.requestNumber = requestNumber;
+    }
 }

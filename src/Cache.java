@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,6 +8,10 @@ public class Cache {
 
     int id;
     int limitSize;
-    List<Endpoint> connectedEndpoints;
+    List<Video> videos = new ArrayList<>();
 
+    public Cache(int id, int limitSize) {
+        this.id = id;
+        this.limitSize = limitSize;
+    }
 }

@@ -10,9 +10,9 @@ public class Endpoint {
     int latencyToDataServer;
     Map<Cache, Integer> connectedCaches;
 
-
-
-
-
-
+    public Endpoint(int id, int latencyToDataServer, Map<Cache, Integer> connectedCaches) {
+        this.id = id;
+        this.latencyToDataServer = latencyToDataServer;
+        this.connectedCaches = connectedCaches;
+    }
 }
